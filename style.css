@@ -5,6 +5,10 @@
     font-weight: 400;
     user-select: none;
 }
+#illustrationWomanMobile{
+    width: 0;
+    height: 0;
+}
 .attribution{
     position: absolute;
     bottom: 0;
@@ -28,6 +32,7 @@ main{
     background-color: white;
     height: 60vh;
     margin-top: 20vh;
+    min-width: 750px;
     background-repeat: no-repeat;
     background-image: url(./images/illustration-woman-online-desktop.svg), url(./images/bg-pattern-desktop.svg);
     background-size: auto, contain;
@@ -77,4 +82,60 @@ h1{
 .question:hover{
     color:hsl(14, 88%, 65%);
     cursor:pointer;
+}
+@media  (max-width: 800px) {
+    main{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 90vw;
+        margin: auto;
+        background-color: white;
+        height: 60vh;
+        margin-top: 30vh;
+        min-width: 50px;
+        background-repeat: no-repeat;
+        background-image: url(./images/bg-pattern-mobile.svg);
+        background-size: auto;
+        background-position: center top -20px;
+        border-radius: 15px;
+        padding: 20px;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .FAQ{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 80%;
+        margin: 0 0 0 0;
+    }
+
+    #illustrationWomanMobile{
+        width: auto;
+        height:auto;
+        position: relative;
+        right: 30px;
+        bottom: 18%;
+    }
+    #illustrationBox{
+        width: 0;
+        height: 0;
+    }
+    h2{
+    font-size: 12px;
+    width:100%;
+
+    }
+    h1{
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 1em;
+    }
+    .question{
+        padding: 15px 10px 10px 10px;
+        height: 1em;
+    }
 }
