@@ -5,6 +5,9 @@
     font-weight: 400;
     user-select: none;
 }
+:root{
+    --dropping-duration: 1.2s;
+}
 #illustrationWomanMobile{
     width: 0;
     height: 0;
@@ -42,8 +45,23 @@ main{
     justify-content: flex-end;
 }
 body{
-    background: linear-gradient(hsl(273, 75%, 66%),hsl(240, 73%, 65%));
+    background: linear-gradient(hsl(273, 75%, 66%),hsl(240, 73%, 65%),hsl(273, 75%, 66%),hsl(240, 73%, 65%));
+    background-size: 400% 400%;
     background-repeat: no-repeat;
+    animation-duration: 10s;
+    animation-name: backgroundGradient;
+    animation-iteration-count: infinite;
+}
+@keyframes backgroundGradient {
+    0%{
+        background-position: 50% 0%;
+    }
+    50%{
+        background-position: 50% 100%;
+    }
+    100%{
+        background-position: 50% 0%;
+    }
 }
 html{
     height: 100%;
@@ -78,29 +96,47 @@ h1{
     top:40%;
     left: -93px;
     z-index: 2;
+    animation-duration: var(--dropping-duration);
+    animation-name: boxDropping;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
 }
 .question:hover{
     color:hsl(14, 88%, 65%);
     cursor:pointer;
 }
+@keyframes boxDropping {
+    0%{
+        top: -150%;
+    }
+    80%{
+        top: 50%
+    }
+    100%{
+        top:40%;
+    }
+    
+}
+
 @media  (max-width: 800px) {
     main{
-        position: relative;
         display: flex;
         flex-direction: column;
         width: 90vw;
         margin: auto;
         background-color: white;
-        height: 60vh;
+        margin-bottom: 100px;
+        height: auto;
         margin-top: 30vh;
+        margin-bottom: 10%;
         min-width: 50px;
         background-repeat: no-repeat;
         background-image: url(./images/bg-pattern-mobile.svg);
-        background-size: auto;
+        background-size: 70%;
         background-position: center top -20px;
         border-radius: 15px;
         padding: 20px;
-        justify-content: flex-end;
+        justify-content: flex-start;
         align-items: center;
     }
 
@@ -110,22 +146,37 @@ h1{
         justify-content: space-around;
         align-items: center;
         width: 80%;
-        margin: 0 0 0 0;
+        margin: 20vh 0 0 0;
     }
 
     #illustrationWomanMobile{
-        width: auto;
+        width: 70%;
         height:auto;
-        position: relative;
-        right: 30px;
-        bottom: 18%;
+        position: absolute;
+        top : -27vw;
+        left: 12%;
+        right: 20%;
+        animation-name: mobileDropping;
+        animation-duration: var(--dropping-duration);
+        animation-fill-mode: forwards;
+    }
+    @keyframes mobileDropping {
+        0%{
+            top : -150vw;
+        }
+        80%{
+            top: -10vw;
+        }
+        100%{
+            top: -27vw;
+        }
     }
     #illustrationBox{
         width: 0;
         height: 0;
     }
     h2{
-    font-size: 12px;
+    font-size: 13px;
     width:100%;
 
     }
@@ -136,6 +187,5 @@ h1{
     }
     .question{
         padding: 15px 10px 10px 10px;
-        height: 1em;
     }
 }
